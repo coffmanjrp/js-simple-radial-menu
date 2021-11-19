@@ -31,9 +31,36 @@ li {
   align-items: center;
   width: 200px;
   height: 200px;
-  background-color: #0f0;
-  li {
+  li:not(.toggle) {
     position: absolute;
+    left: 0;
+    transform: rotate(0deg) translateX(80px);
+    transform-origin: 100px;
+    transition: transform 0.5s ease;
+    transition-delay: calc(0.1s * var(--i));
+    a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      background-color: #fff;
+      border-radius: 50%;
+      box-shadow: 0 3px 4px rgba(0, 0, 0, 0.15);
+      transform: rotate(calc(360deg / -8 * var(--i)));
+      transition: color 0.5s ease;
+      &:hover {
+        color: #ff1252;
+      }
+    }
+  }
+  &.active {
+    .toggle {
+      transform: rotate(315deg);
+    }
+    li:not(.toggle) {
+      transform: rotate(calc(360deg / 8 * var(--i))) translateX(0);
+    }
   }
 }
 
@@ -46,8 +73,9 @@ li {
   height: 60px;
   background-color: #fff;
   border-radius: 50%;
-  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
   font-size: 2rem;
+  transition: transform 1.25s ease;
   cursor: pointer;
   z-index: 100;
 }

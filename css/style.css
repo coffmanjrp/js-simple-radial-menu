@@ -44,11 +44,57 @@ li {
           align-items: center;
   width: 200px;
   height: 200px;
-  background-color: #0f0;
 }
 
-.menu li {
+.menu li:not(.toggle) {
   position: absolute;
+  left: 0;
+  -webkit-transform: rotate(0deg) translateX(80px);
+          transform: rotate(0deg) translateX(80px);
+  -webkit-transform-origin: 100px;
+          transform-origin: 100px;
+  -webkit-transition: -webkit-transform 0.5s ease;
+  transition: -webkit-transform 0.5s ease;
+  transition: transform 0.5s ease;
+  transition: transform 0.5s ease, -webkit-transform 0.5s ease;
+  -webkit-transition-delay: calc(0.1s * var(--i));
+          transition-delay: calc(0.1s * var(--i));
+}
+
+.menu li:not(.toggle) a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 40px;
+  height: 40px;
+  background-color: #fff;
+  border-radius: 50%;
+  -webkit-box-shadow: 0 3px 4px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 3px 4px rgba(0, 0, 0, 0.15);
+  -webkit-transform: rotate(calc(360deg / -8 * var(--i)));
+          transform: rotate(calc(360deg / -8 * var(--i)));
+  -webkit-transition: color 0.5s ease;
+  transition: color 0.5s ease;
+}
+
+.menu li:not(.toggle) a:hover {
+  color: #ff1252;
+}
+
+.menu.active .toggle {
+  -webkit-transform: rotate(315deg);
+          transform: rotate(315deg);
+}
+
+.menu.active li:not(.toggle) {
+  -webkit-transform: rotate(calc(360deg / 8 * var(--i))) translateX(0);
+          transform: rotate(calc(360deg / 8 * var(--i))) translateX(0);
 }
 
 .toggle {
@@ -66,9 +112,13 @@ li {
   height: 60px;
   background-color: #fff;
   border-radius: 50%;
-  -webkit-box-shadow: 0 3px 4px rgba(0, 0, 0, 0.15);
-          box-shadow: 0 3px 4px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
   font-size: 2rem;
+  -webkit-transition: -webkit-transform 1.25s ease;
+  transition: -webkit-transform 1.25s ease;
+  transition: transform 1.25s ease;
+  transition: transform 1.25s ease, -webkit-transform 1.25s ease;
   cursor: pointer;
   z-index: 100;
 }
