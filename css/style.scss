@@ -1,0 +1,53 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  min-height: 100vh;
+  background: linear-gradient(45deg, #8450ed, #ff1242);
+  overflow: hidden;
+}
+
+a {
+  color: unset;
+}
+
+li {
+  list-style-type: none;
+}
+
+.menu {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+  background-color: #0f0;
+  li {
+    position: absolute;
+  }
+}
+
+.toggle {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.15);
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 100;
+}
